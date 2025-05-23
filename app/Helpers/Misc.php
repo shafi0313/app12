@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use RealRashid\SweetAlert\Facades\Alert;
 use Intervention\Image\Laravel\Facades\Image;
 
 /*
@@ -182,6 +183,14 @@ if (! function_exists('readableSize')) {
     }
 }
 
+if (! function_exists('cVar')) {
+    function cVar($name, $data)
+    {
+        return config('var.'.$name)[$data] ?? null;
+    }
+}
+
+
 /*
 |--------------------------------------------------------------------------
 | Navigation Functions
@@ -326,6 +335,20 @@ if (! function_exists('user')) {
     }
 }
 
+if (! function_exists('isSuperAdmin')) {
+    function isSuperAdmin()
+    {
+        return user()->role == 1;
+    }
+}
+
+if (! function_exists('isAdmin')) {
+    function isAdmin()
+    {
+        return user()->role == 2;
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | OS and Browser Functions
@@ -414,5 +437,18 @@ if (! function_exists('uniqueId')) {
         }
 
         return substr(bin2hex($bytes), 0, $length);
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Message Functions
+|--------------------------------------------------------------------------
+*/
+if (! function_exists('accessMsg')) {
+    function accessMsg()
+    {
+        Alert::error('You do not have permission to access this page.');
+        return back();
     }
 }
