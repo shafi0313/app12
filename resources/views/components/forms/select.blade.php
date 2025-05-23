@@ -25,3 +25,6 @@
         @endforeach
     </select>
 </div>
+
+{{-- Example --}}
+{{-- <x-forms.select name="role" label="Role *" :options="config('var.roles')" /> --}}

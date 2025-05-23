@@ -1,5 +1,4 @@
 <div class="mb-3">
-    {{-- @props(['route', 'icon', 'text', 'active']) --}}
     @php
         $id = $id ?? ($name ?? '');
         $type = $type ?? 'text';
@@ -10,6 +9,7 @@
         // $required = $required ?? false;
         // $isRequired = false;
     @endphp
+
     @if ($label)
         @php
             $label = str_replace('*', '<span class="text-danger">*</span>', $label);
@@ -30,3 +30,6 @@
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror
 </div>
+
+{{-- Example --}}
+{{-- <x-forms.input name="name" label="Name *" /> --}}
