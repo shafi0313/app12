@@ -27,7 +27,7 @@ class UserController extends Controller
                 })
                 ->addColumn('image', function ($row) {
                     $src = getImgUrl('user', $row->image);
-                    return sprintf('<a href="%s" target="_blank"><img src="%s" width="50"></a>', $src, $src);
+                    return sprintf('<a href="%s" target="_blank"><img src="%s" width="30"></a>', $src, $src);
                 })
                 ->addColumn('is_active', function ($row) {
                     return view('button', ['type' => 'active', 'route' => hpnToUscr($this->route), 'row' => $row]);
