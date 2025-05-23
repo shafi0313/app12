@@ -31,7 +31,7 @@
 
         <link href="{{ asset('common/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
-        <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+        {{-- <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css"> --}}
 
         <!-- Theme Config js -->
         <script src="{{ asset('backend/js/config.js') }}"></script>
@@ -88,7 +88,14 @@
         <script src="{{ asset('common/js/http.js') }}"></script>
         <script src="{{ asset('common/js/custom.js') }}"></script>
 
-        <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+        <link href="https://cdn.datatables.net/v/bs5/dt-2.3.1/datatables.min.css" rel="stylesheet"
+            integrity="sha384-rcK/Hw0a8czqNV8XiNNbA2kqXBypz/reTTu9ewJiCYQRES16Xpl47dKudYItkU7M" crossorigin="anonymous">
+        <script src="https://cdn.datatables.net/v/bs5/dt-2.3.1/datatables.min.js"
+            integrity="sha384-BE8jgQ18lLIDRFU5irQ26MTXl+tzWCKvu313il+U+Wo2wVTDr47xBIDmggcM21dh" crossorigin="anonymous">
+        </script>
+
+
+        {{-- <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> --}}
         {{-- <script>
             let idleTime = 0;
         
