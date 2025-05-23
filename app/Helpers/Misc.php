@@ -65,6 +65,12 @@ if (! function_exists('pad6')) {
     }
 }
 
+if (! function_exists('nF')) {
+    function nF(float $number): string
+    {
+        return number_format($number, 0);
+    }
+}
 if (! function_exists('nF2')) {
     function nF2(float $number): string
     {

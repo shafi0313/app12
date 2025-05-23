@@ -27,6 +27,7 @@
 
         <!-- App css -->
         <link href="{{ asset('backend/css/style.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
         <link href="{{ asset('common/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
