@@ -1,5 +1,5 @@
 @php
-    $dir = 'center';
+    $dir = 'user';
     $title = ucfirst($dir) . 's';
     $route = 'admin.' . $dir . 's.';
 @endphp
