@@ -13,42 +13,19 @@
     </div>
 
     <div class="scrollbar" data-simplebar>
-
         <ul class="navbar-nav" id="navbar-nav">
-
             <li class="menu-title">Menu...</li>
-
 
             {{-- :active="['route1','route2']" --}}
             <x-shared.nav-item route="admin.dashboard" icon="solar:widget-2-outline" text="Dashboard" />
 
             @php
-                $submenuItems = [
+                $submenus = [
                     ['title' => 'User', 'route' => 'admin.users.index'],
-                    ['title' => 'Center', 'route' => 'admin.centers.index'],
-                    ['title' => 'Department', 'route' => 'admin.departments.index'],
-                    ['title' => 'Category', 'route' => 'admin.categories.index'],
-                    ['title' => 'Designation', 'route' => 'admin.designations.index'],
                 ];
             @endphp
 
-            <x-shared.nav-dropdown title="Admin" icon="solar:user-circle-outline" id="admin" :submenu="$submenuItems" />
-
-
-            @if (!Route::is('admin.profiles.*'))
-                <x-shared.nav-item route="admin.profiles.general-infos.index" icon="flowbite:profile-card-solid"
-                    text="View/Edit Profile" />
-            @endif
-
-            @if (Route::is('admin.profiles.*'))
-                <x-shared.nav-item route="admin.profiles.general-infos.index" icon="flowbite:profile-card-solid"
-                    text="General Information" />
-
-                <x-shared.nav-item route="admin.profiles.addresses.index" icon="mdi:address-marker" text="Address Information" />
-                <x-shared.nav-item route="admin.profiles.spouses.index" icon="solar:user-plus-broken" text="Spouse Information" />
-            @endif
-
-            <x-shared.nav-item route="admin.dashboard" icon="mdi:file-report" text="Report" />
+            <x-shared.nav-dropdown icon="solar:user-circle-outline" id="admin" :submenu="$submenus" title="Admin" />
 
 
             {{-- <li class="nav-item">

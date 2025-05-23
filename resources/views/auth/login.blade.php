@@ -28,7 +28,7 @@
                 @endif
                 {{-- :img="true" --}}
                 <x-forms.form action="{{ route('login') }}">
-                    <x-forms.input type="text" name="email_or_phone" label="email or phone *" placeholder="Enter your email or phone" required />
+                    <x-forms.input type="text" name="email" label="email or phone *" placeholder="Enter your email or phone" required />
                     <div class="mb-3">
                         <div class="d-flex justify-content-between align-items-center">
                             <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
