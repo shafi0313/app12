@@ -9,20 +9,27 @@ use Illuminate\View\Component;
 class Input extends Component
 {
     public $type;
+
     public $name;
+
     public $id;
+
     public $label;
+
     public $placeholder;
+
     public $value;
+
     public $required;
+
     public $edit;
 
     public function __construct(
         string $name,
         string $type = 'text',
-        string $id = null,
-        string $label = null,
-        string $placeholder = null,
+        ?string $id = null,
+        ?string $label = null,
+        ?string $placeholder = null,
         $value = null,
         $required = null,
         $edit = null

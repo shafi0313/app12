@@ -1,8 +1,8 @@
 <?php
 
 use Carbon\Carbon;
-use RealRashid\SweetAlert\Facades\Alert;
 use Intervention\Image\Laravel\Facades\Image;
+use RealRashid\SweetAlert\Facades\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,7 +111,7 @@ if (! function_exists('numberToNotation')) {
             $formattedNumber = rtrim($formattedNumber, '.');
         }
 
-        return $formattedNumber . $suffixes[$suffixIndex];
+        return $formattedNumber.$suffixes[$suffixIndex];
     }
 }
 
@@ -170,13 +170,13 @@ if (! function_exists('readableSize')) {
         }
 
         if ($n >= 1_000_000_000_000) {
-            return round($n / 1_000_000_000_000, 1) . ' TB';
+            return round($n / 1_000_000_000_000, 1).' TB';
         } elseif ($n >= 1_000_000_000) {
-            return round($n / 1_000_000_000, 1) . ' GB';
+            return round($n / 1_000_000_000, 1).' GB';
         } elseif ($n >= 1_000_000) {
-            return round($n / 1_000_000, 1) . ' MB';
+            return round($n / 1_000_000, 1).' MB';
         } elseif ($n >= 1_000) {
-            return round($n / 1_000, 1) . ' KB';
+            return round($n / 1_000, 1).' KB';
         }
 
         return number_format($n);
@@ -189,7 +189,6 @@ if (! function_exists('cVar')) {
         return config('var.'.$name)[$data] ?? null;
     }
 }
-
 
 /*
 |--------------------------------------------------------------------------
@@ -231,7 +230,7 @@ if (! function_exists('processAndStoreImage')) {
      */
     function processAndStoreImage($image, string $path, ?array $size = null, ?string $oldImage = null): string
     {
-        $directory = public_path('uploads/images/' . $path);
+        $directory = public_path('uploads/images/'.$path);
 
         // Create the directory if it doesn't exist
         if (! is_dir($directory)) {
@@ -241,13 +240,13 @@ if (! function_exists('processAndStoreImage')) {
         $extension = strtolower($image->getClientOriginalExtension());
 
         // Remove the old image if it exists
-        if ($oldImage && file_exists($directory . '/' . $oldImage)) {
-            unlink($directory . '/' . $oldImage);
+        if ($oldImage && file_exists($directory.'/'.$oldImage)) {
+            unlink($directory.'/'.$oldImage);
         }
 
         // Handle SVG images separately
         if ($extension === 'svg') {
-            $imageName = $path . '-' . uniqid() . '.svg';
+            $imageName = $path.'-'.uniqid().'.svg';
             $image->move($directory, $imageName);
 
             return $imageName;
@@ -265,8 +264,8 @@ if (! function_exists('processAndStoreImage')) {
             });
         }
 
-        $imageName = $path . '-' . uniqid() . '.' . ($extension === 'png' ? 'png' : 'webp');
-        $image->save($directory . '/' . $imageName, 80, $extension === 'png' ? null : 'webp');
+        $imageName = $path.'-'.uniqid().'.'.($extension === 'png' ? 'png' : 'webp');
+        $image->save($directory.'/'.$imageName, 80, $extension === 'png' ? null : 'webp');
 
         return $imageName;
     }
@@ -275,7 +274,7 @@ if (! function_exists('processAndStoreImage')) {
 if (! function_exists('imgUnlink')) {
     function imgUnlink(string $folder, $image): bool
     {
-        $path = public_path('uploads/images/' . $folder . '/' . $image);
+        $path = public_path('uploads/images/'.$folder.'/'.$image);
         if ($image && file_exists($path)) {
             return unlink($path);
         }
@@ -316,7 +315,7 @@ if (! function_exists('getFavicon')) {
 if (! function_exists('getProfileImg')) {
     function getProfileImg(): string
     {
-        $path = 'uploads/images/user/' . user()?->image;
+        $path = 'uploads/images/user/'.user()?->image;
 
         return asset(file_exists(asset($path)) ? $path : 'common/images/user/avatar.svg');
     }
@@ -421,7 +420,7 @@ if (! function_exists('tranId')) {
 
         $id = strtoupper(substr(bin2hex($bytes), 0, $length));
 
-        return $src !== '' ? strtoupper($src . '_' . $id) : $id;
+        return $src !== '' ? strtoupper($src.'_'.$id) : $id;
     }
 }
 
@@ -449,6 +448,7 @@ if (! function_exists('accessMsg')) {
     function accessMsg()
     {
         Alert::error('You do not have permission to access this page.');
+
         return back();
     }
 }

@@ -21,12 +21,11 @@ class UserController extends Controller
             return DataTables::of($users)
                 ->addIndexColumn()
                 ->addColumn('role', function ($row) {
-                    $roles = config('var.roles');
-
-                    return $roles[$row->role] ?? 'Unknown';
+                    return cVar('roles', $row->role);
                 })
                 ->addColumn('image', function ($row) {
                     $src = getImgUrl('user', $row->image);
+
                     return sprintf('<a href="%s" target="_blank"><img src="%s" width="30"></a>', $src, $src);
                 })
                 ->addColumn('is_active', function ($row) {
@@ -78,8 +77,8 @@ class UserController extends Controller
 
     public function edit(Request $request, User $user)
     {
-        if ($request->ajax()) {            
-            $route = route($this->route . '.update', $user->id);
+        if ($request->ajax()) {
+            $route = route($this->route.'.update', $user->id);
             $modal = view('admin.user.edit', ['user' => $user, 'route' => $route])->render();
 
             return response()->json(['modal' => $modal], 200);

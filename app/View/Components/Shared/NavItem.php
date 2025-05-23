@@ -22,7 +22,7 @@ class NavItem extends Component
         $this->icon = $icon;
         $this->text = $text;
         $this->active = $active;
-    }    
+    }
 
     /**
      * Get the view / contents that represent the component.
