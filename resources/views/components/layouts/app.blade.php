@@ -85,7 +85,7 @@
         <link href="{{ asset('common/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
         <script src="{{ asset('common/plugins/select2/js/select2.min.js') }}"></script>
 
-        <script src="{{ asset('common/js/http.js') }}"></script>
+        <script src="{{ asset('common/js/ajax-crud.js') }}"></script>
         <script src="{{ asset('common/js/custom.js') }}"></script>
 
         <link href="https://cdn.datatables.net/v/bs5/dt-2.3.1/datatables.min.css" rel="stylesheet"

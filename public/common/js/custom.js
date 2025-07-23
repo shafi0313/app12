@@ -4,14 +4,23 @@ $(document).ready(function () {
     });
 });
 
-function digitInput(event) {
+// DataTable auto width adjustment
+$(".button-toggle-menu").on("click", function () {
+    setTimeout(function () {
+        if ($.fn.DataTable.isDataTable("#data_table")) {
+            $("#data_table").DataTable().columns.adjust();
+        }
+    }, 300);
+});
+
+function digitValidation(event) {
     event.target.value = event.target.value.replace(/[^\d]/g, "");
 }
 
-function floatInput(event) {
+function floatValidation(event) {
     event.target.value = event.target.value.replace(/[^\d.]/g, "");
 }
-function phoneIn(event) {
+function phoneValidation(event) {
     event.target.value = event.target.value.replace(/[^\d.+-]/g, "");
 }
 
