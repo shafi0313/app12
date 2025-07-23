@@ -67,6 +67,7 @@
                             data: 'image',
                             name: 'image',
                             title: 'Image',
+                            className: "text-center",
                             searchable: false,
                             orderable: false,
                         },

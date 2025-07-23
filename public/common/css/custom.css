@@ -30,9 +30,27 @@ label {
 } */
 /* Form CSS End */
 
+/* Custom Button Styles */
+._btn {
+    border: none !important;
+    background: none;
+    font-size: 17px;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1px !important;
+}
+
 /* Table Start */
 table thead tr th {
     text-transform: capitalize;
+}
+table thead tr th,
+table thead tr th,
+table tbody tr td,
+table tr td {
+    vertical-align: middle !important;
+    /* padding: 2px 5px !important; */
 }
 
 /* .table-bold td {

@@ -1,28 +1,15 @@
-<style>
-    ._btn {
-        border: none !important;
-        background: none;
-        font-size: 17px;
-        margin: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        line-height: 1px !important;
-    }
-</style>
-
-
 @switch($type)
     @case('ajax-edit')
         <button data-route="{{ route($route . '.edit', $row->id) }}" data-value="{{ $row->id }}" onclick="ajaxEdit(this)"
             class='text-primary _btn' title="@lang('Edit')">
-            <iconify-icon icon="tabler:edit" class="fs-25" style="color: #0023ff"></iconify-icon>
+            <iconify-icon icon="tabler:edit" style="font-size: 1.5rem" style="color: #0023ff"></iconify-icon>
         </button>
         @break
 
     @case('ajax-delete')
         <button data-route="{{ route($route . '.destroy', $row->id) }}" data-value="{{ $row->id }}"
             onclick="ajaxDelete(this, '{{ $src ?? null }}')" class='text-danger _btn' title="@lang('Delete')">
-            <iconify-icon icon="tabler:trash-x-filled" class="fs-25" style="color: #fd2f2f"></iconify-icon>
+            <iconify-icon icon="tabler:trash-x-filled" style="font-size: 1.5rem" style="color: #fd2f2f"></iconify-icon>
         </button>
         @break
 
@@ -30,9 +17,9 @@
         <span data-route="{{ route($route . '.active_status', $row->id) }}" data-value="{{ $row->is_active }}"
             onclick="changeStatusPatch(this)" style="cursor: pointer;">
             @if ($row->is_active == 1)
-                <iconify-icon icon="fa6-solid:toggle-on" width="2.25em" height="2em"  style="color: #17a497"></iconify-icon>
+                <iconify-icon icon="fa6-solid:toggle-on" height="1.60rem"  style="color: #17a497"></iconify-icon>
             @else
-                <iconify-icon icon="fa6-solid:toggle-off" width="2.25em" height="2em" style="color: #fd2f2f"></iconify-icon>
+                <iconify-icon icon="fa6-solid:toggle-off" height="1.60rem" style="color: #fd2f2f"></iconify-icon>
             @endif
         </span>
         @break

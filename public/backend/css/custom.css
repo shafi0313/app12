@@ -1,5 +1,5 @@
 .page-title-box {
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
 }
 
 .page-content {
@@ -7,11 +7,11 @@
 }
 
 .card-body {
-    padding: 0.75rem 0.75rem;
+    padding: 0.4rem 0.6rem;
 }
 
 .card-header {
-    padding: 0.75rem var(--taplox-card-cap-padding-x);
+    padding: 0.4rem 0.6rem;
 }
 
 .card-title {
