@@ -20,31 +20,31 @@
     </div>
 
     @include('admin.' . $dir . '.create', ['title' => $title, 'route' => $route])
-    
+
     @push('scripts')
         <script>
             $(function() {
-                $('#data_table').DataTable({
+                const table = $('#data_table').DataTable({
                     processing: true,
                     serverSide: true,
                     deferRender: true,
-                    ordering: true,
                     scrollX: true,
                     scrollY: 400,
+                    ordering: true,
                     ajax: "{{ route($route . 'index') }}",
                     columns: [{
                             data: 'DT_RowIndex',
                             name: 'DT_RowIndex',
                             title: 'SL',
-                            className: "text-center",
-                            width: "17px",
+                            className: 'text-center',
+                            width: '17px',
                             searchable: false,
                             orderable: false,
                         },
                         {
                             data: 'role',
                             name: 'role',
-                            title: 'role',
+                            title: 'Role',
                             searchable: false,
                             orderable: false,
                         },
@@ -56,18 +56,18 @@
                         {
                             data: 'email',
                             name: 'email',
-                            title: 'Email'
+                            title: 'Email',
                         },
                         {
                             data: 'phone_number',
                             name: 'phone_number',
-                            title: 'Phone number'
+                            title: 'Phone Number',
                         },
                         {
                             data: 'image',
                             name: 'image',
                             title: 'Image',
-                            className: "text-center",
+                            className: 'text-center',
                             searchable: false,
                             orderable: false,
                         },
@@ -75,7 +75,7 @@
                             data: 'is_active',
                             name: 'is_active',
                             title: 'Status',
-                            className: "text-center",
+                            className: 'text-center',
                             searchable: false,
                             orderable: false,
                         },
@@ -83,17 +83,17 @@
                             data: 'action',
                             name: 'action',
                             title: 'Action',
-                            className: "text-center",
-                            width: "100px",
-                            orderable: false,
+                            className: 'text-center',
+                            width: '80px',
                             searchable: false,
+                            orderable: false,
                         },
                     ],
                     order: [
                         [2, 'asc']
                     ],
                     scroller: {
-                        loadingIndicator: true
+                        loadingIndicator: true,
                     },
                 });
             });

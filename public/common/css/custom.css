@@ -44,6 +44,10 @@ label {
 /* Table Start */
 table thead tr th {
     text-transform: capitalize;
+    padding: .45rem 0.35rem !important;
+}
+#data_table_wrapper>div {
+    margin-top: 5px !important;
 }
 table thead tr th,
 table thead tr th,

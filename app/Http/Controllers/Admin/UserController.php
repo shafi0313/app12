@@ -20,23 +20,15 @@ class UserController extends Controller
 
             return DataTables::of($users)
                 ->addIndexColumn()
-                ->addColumn('role', function ($row) {
-                    return cVar('roles', $row->role);
-                })
-                ->addColumn('image', function ($row) {
-                    $src = getImgUrl('user', $row->image);
-
-                    return sprintf('<a href="%s" target="_blank"><img src="%s" width="30"></a>', $src, $src);
-                })
-                ->addColumn('is_active', function ($row) {
-                    return view('button', ['type' => 'active', 'route' => hpnToUscr($this->route), 'row' => $row]);
-                })
+                ->addColumn('role', fn($row) => cVar('roles', $row->role))
+                ->addColumn('image', fn($row) => sprintf(
+                    '<a href="%1$s" target="_blank"><img src="%1$s" width="30"></a>',
+                    getImgUrl('user', $row->image)
+                ))
+                ->addColumn('is_active', fn($row) => view('button', ['type' => 'active', 'route' => hpnToUscr($this->route), 'row'  => $row]))
                 ->addColumn('action', function ($row) {
-                    $btn = '';
-                    $btn .= view('button', ['type' => 'ajax-edit', 'route' => $this->route, 'row' => $row]);
-                    $btn .= view('button', ['type' => 'ajax-delete', 'route' => $this->route, 'row' => $row]);
-
-                    return $btn;
+                    return view('button', ['type'  => 'ajax-edit', 'route' => $this->route, 'row'   => $row]) .
+                        view('button', ['type'  => 'ajax-delete', 'route' => $this->route, 'row'   => $row]);
                 })
                 ->rawColumns(['image', 'is_active', 'action'])
                 ->make(true);
@@ -44,6 +36,7 @@ class UserController extends Controller
 
         return view('admin.user.index');
     }
+
 
     public function activeStatus(User $user)
     {
@@ -78,7 +71,7 @@ class UserController extends Controller
     public function edit(Request $request, User $user)
     {
         if ($request->ajax()) {
-            $route = route($this->route.'.update', $user->id);
+            $route = route($this->route . '.update', $user->id);
             $modal = view('admin.user.edit', ['user' => $user, 'route' => $route])->render();
 
             return response()->json(['modal' => $modal], 200);
