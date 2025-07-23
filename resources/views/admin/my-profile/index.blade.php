@@ -57,6 +57,7 @@
                             </td>
                         </tr>
                     </table>
+                    <hr>
                 </div>
 
                 <x-forms.form ajax="true" action="{{ route('admin.my_profiles.store') }}" img="true">
